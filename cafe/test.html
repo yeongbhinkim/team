@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="1.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style>
+    html body {
+      margin: 0 auto;  
+      width: 100%;
+      height: 100%;
+    }
+
+    div {
+      margin: 0 auto;     
+    }
+
+    .a {
+      margin-top: 150px;
+      text-align: center;
+    }
+
+    .b {
+      width: 100%;
+    }
+
+    .c {
+      width: 80%;
+      text-align: 50px;
+      line-height: 50px;
+      text-align: right;
+    }
+
+    .d {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      height: 30px;
+    }
+
+    .e {
+      width: 80%;
+    }
+
+    .input-group input {
+      width: 100%;
+      height: 100%;
+    }
+
+    .menu input[type=checkbox] {
+      display: none;
+    }
+
+    .menu input[type=checkbox]+label {
+      padding-left: 25px;
+      background-repeat: no-repeat;
+    }
+
+    .menu input[type=checkbox]+label>span {
+      font-weight: bold;
+    }
+
+    .menu {
+      width: 100%;      
+      
+    }
+
+    .menu .menuitems {
+      outline: 1px solid red;      
+      width: 100%;
+      height: 300px;
+      list-style: none;
+      display: none;
+
+    }
+    .menuitems .Areadata {
+      outline: 1px solid red;
+      width: 100%;
+      height: 10%;
+    }
+
+    .menu .menuitems .detailChoice {
+      /* outline: 1px solid red; */
+      width: 100%;
+      height: 90%;
+      overflow: auto;
+      display: flex;
+     
+    }
+
+
+
+    .Areadata .selectArea li {
+       display: inline;
+    }
+
+    .menu .menuitems .detailChoice .detailmenu {
+      text-decoration: none;     
+      /* outline: 1px solid red; */
+      width: 50%;
+      height: 100%;
+      font-weight: bold;
+      font-size: 0.8rem;    
+    }   
+  
+    
+    .menu .menuitems .detailChoice .detailmenu .Area {
+      outline: 1px solid red;
+      overflow: hidden;
+      list-style: none; 
+      /* display: inline-block; */
+      width: 100%;
+      height: 15%;
+    }
+
+    .menu .menuitems .detailChoice .detailmenu .Areabox {
+      outline: 1px solid red; 
+      display: inline-block;    
+      width: 100%;
+      height: 85%;
+      position: relative;    
+      
+    }
+
+    .menu .menuitems .detailChoice .detailmenu .Areabox .cont{
+      /* outline: 1px solid red;  */
+      /* line-height:200px; */
+      position:absolute;        
+      left:0;   
+      text-align:center;
+      width:100%; 
+      height:100%; 
+      background-color: white;
+      color:black;
+      display: inline-flex;
+      }
+      
+      .Areabox a{
+        margin: 10px;
+        text-align:center;
+      }
+
+    .menu .menuitems .detailChoice .detailmenu li {
+      float: left;
+      margin-right: 14px;
+    }
+
+    .menu .menuitems .detailChoice .detailmenu li.is_on .btn {
+      font-weight: bold;
+      color: blue;
+    }
+    
+    .menu .menuitems .detailChoice .detailmenu .btn {
+      font-size: 15px;
+      margin-left: 50px;
+      
+    }        
+    .menu .menuitems .detailChoice .detailbox .hashtech {
+      outline: 1px solid red;     
+      /* display: inline-block; */
+      width: 100%;
+      height: 15%;
+    }
+
+    .menu .menuitems .detailChoice .detailbox .hashtechbox {  
+      outline: 1px solid red;  
+      /* display: inline-block; */
+      width: 100%;
+      height: 85%;
+    }
+
+    .menu .menuitems .detailChoice .detailbox {
+      text-decoration: none;
+      /* outline: 1px solid red; */
+      /* color: white; */
+      width: 50%;
+      height: 100%;
+      /* font-weight: bold; */
+      font-size: 0.8rem;
+    }  
+
+    .menu input[type=checkbox]:checked~.menuitems {
+      display: block;
+    }
+
+
+    @media (max-width: 600px) {
+      .menu .menuitems .detailChoice {
+        display: inline-block;
+      }
+
+      .menu .menuitems .detailChoice .detailmenu {
+        width: 100%;
+      }
+
+      .menu .menuitems .detailChoice .detailbox {
+        width: 100%;
+      }
+    }
+ 
+
+ 
+
+    .kim {
+      width: 80%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="kim">
+    <div class="a">
+      <h3><a href="#">카페 홍길동</a></h3>
+    </div>
+    <div class="b">
+      <div class="c">
+        <span><a href="#">회원가입</a></span><span>|</span><span><a href="#">로그인</a></span>
+      </div>
+    </div>
+
+    <div class="d">
+      <div class="e">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control rounded-pill" placeholder="Recipient's username"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button><button
+            class="kita btn btn-outline-secondary">등록</button> <button
+            class="detail btn btn-outline-secondary">상세</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu">
+      <input type="checkbox" class="메뉴체크" id="collapsible">
+      <div class="menuitems">
+
+        <div class="Areadata">
+          <div class="selectArea">
+            <li id="selectArea1"></li>
+            <li id="selectArea2"></li>
+            <li id="selectArea3"></li>
+          </div><!-- class="selectArea" -->
+        </div><!-- class="Areadata" -->
+        <div class="detailChoice">
+          <div class="detailmenu">
+            
+            <div class="Area">
+              <li class="is_on">
+                <a href="#tab1" class="btn">시</a>               
+              </li>
+              <li>
+                <a href="#tab2" class="btn tab2" id="btn tab2">군</a>
+              </li>
+              <li>
+                <a href="#tab3" class="btn tab3" id="btn tab3">구</a>
+              </li>
+            </div>
+            <div class="Areabox">
+              <div id="tab1" class="cont" style="z-index: 2;">
+                <a href="javascript:void(0)" class="tabs Seoul" >서울</a>                    
+                <a href="javascript:void(0)" class="tabs Busan" >부산</a>                   
+                <a href="javascript:void(0)" class="tabs Ulsan" >울산</a>                
+              </div><!-- id="tab1" class="cont" -->             
+                <div id="tab2" class="cont">                  
+                    <div class="tab2box">          
+                    </div><!-- class="tab2box" -->               
+                </div><!-- id="tab2" class="cont" -->           
+              <div id="tab3" class="cont">
+                <div class="tab3box">            
+                </div><!-- class="tab3box" -->
+              </div><!-- id="tab3" class="cont" -->
+            </div><!-- class="Areabox" -->
+          </div><!-- class="detailmenu" -->
+          <div class="detailbox">           
+            <div class="hashtech">#해쉬테그</div>
+            <div class="hashtechbox">
+              <p class="hashlist">#아메리카노</p>
+              <p class="hashlist">#카페라떼</p>
+              <p class="hashlist">#아샷추</p>
+              <p class="hashlist">#요거트수플레</p>
+              <p class="hashlist">#뷰 맛집</p>
+            </div>
+          </div><!-- class="detailbox" -->
+        </div><!-- class="detailChoice" -->
+      </div><!-- class="menuitems" -->
+    </div><!-- class="menu" -->
+  </div><!-- class="kim" -->
+
+
+
+  <script>
+    const $kim = document.querySelector('.kim');
+    $kim?.addEventListener('click', click_f, true);
+    const $detail = document.querySelector('.detail');
+    const $메뉴체크 = document.querySelector('.메뉴체크');
+
+    // const $tab1 = document.querySelector('.tabs');
+    // const $tab2 = document.querySelector('.tabs2');
+    // const $tab3 = document.querySelector('.tabs3');
+    const $tab2box = document.querySelector('.tab2box');
+    const $tab3box = document.querySelector('.tab3box');
+
+
+    // const $Ulsan = document.querySelector('.Ulsan'); 
+    // const $Busan = document.querySelector('.Busan');       
+    // const $Seoul = document.querySelector('.Seoul');       
+
+    
+
+    function click_f(evt) {      
+      const $parent = document.querySelector('.kim');
+      const $toMove = evt.target.closest('a');
+      
+      if (evt.target.matches('.detail')) {
+        if ($메뉴체크.checked == true) {
+          $detail.addEventListener('click', (evt) => {
+            $메뉴체크.checked = false;
+          });
+        } else if ($메뉴체크.checked == false) {
+          $detail.addEventListener('click', (evt) => {
+            $메뉴체크.checked = true;
+          });
+        }
+      }
+      //---------------------------------------
+      
+      if(evt.target.matches('.tabs')){                    
+        $toMove.addEventListener('click', (evt) => {                                
+          document.getElementById('selectArea1').innerHTML=$toMove.textContent;
+          document.getElementById('btn tab2').click();          
+        });                           
+        if(evt.target.matches('.Ulsan')){
+                  
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab2'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod21'}, '울산중구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod22'}, '울산동구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod23'}, '울산남구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod24'}, '울산북구')                         
+                       );
+                       $tab2box.appendChild($liEle);
+                      //  $kim.replaceChild($liEle, $tab2box);
+          }
+          if(evt.target.matches('.Busan')){
+                   
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab2'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '부산중구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '부산동구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '부산남구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '부산북구')                         
+                       );
+                       $tab2box.appendChild($liEle);
+                      //  $kim.replaceChild($liEle, $tab2box);
+          }
+          if(evt.target.matches('.Seoul')){
+                  
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab2'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '서울중구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '서울동구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '서울남구'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs2 cod00'}, '서울북구')                         
+                       );
+                       $tab2box.appendChild($liEle);
+                      //  $kim.replaceChild($liEle, $tab2box);
+          }
+        }   
+        
+      
+      if(evt.target.matches('.tabs2')){        
+        $toMove.addEventListener('click', (evt) => {                  
+            document.getElementById('selectArea2').innerHTML=$toMove.textContent;      
+          document.getElementById('btn tab3').click();
+          });  
+          if(evt.target.matches('.cod21')){
+                   
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab3'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod201'}, '울산중구1번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod202'}, '울산중구2번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod203'}, '울산중구3번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod204'}, '울산중구4번지')                         
+                       );
+                       $tab3box.appendChild($liEle);
+                      //  $kim.replaceChild($liEle, $tab3box);
+          }
+          if(evt.target.matches('.cod22')){
+                  
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab3'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod201'}, '울산동구1번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod202'}, '울산동구2번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod203'}, '울산동구3번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod204'}, '울산동구4번지')                         
+                       );
+                       $tab3box.appendChild($liEle);
+                      //  $kim.replaceChild($liEle, $tab3box);
+          }
+          if(evt.target.matches('.cod23')){
+                 
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab3'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod201'}, '울산남구1번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod202'}, '울산남구2번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod203'}, '울산남구3번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod204'}, '울산남구4번지')                         
+                       );
+                       $tab3box.appendChild($liEle);
+                      //  $kim.replaceChild($liEle, $tab3box);
+          }
+          if(evt.target.matches('.cod24')){
+                   
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab3'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod201'}, '울산북구1번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod202'}, '울산북구2번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod203'}, '울산북구3번지'),
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod204'}, '울산북구4번지')                         
+                       );
+                       $tab3box.appendChild($liEle);
+                      //  $kim.replaceChild($liEle, $tab3box);
+          }      
+          if(evt.target.matches('.cod00')){
+                 
+            const $liEle = makeElement('div', { 'class':'cont', 'id':'tab3'},
+                         makeElement('a',{'href':'javascript:void(0)', 'class':'tabs3 cod000'}, '미구현'),
+                                              
+                       );
+                       $tab3box.appendChild($liEle);
+                      // //  $kim.replaceChild($liEle, $tab3box);
+          }            
+        }
+      
+
+
+      if(evt.target.matches('.tabs3')){
+        $toMove.addEventListener('click', (evt) => {
+            console.log($toMove.textContent);          
+            document.getElementById('selectArea3').innerHTML=$toMove.textContent;       
+
+          });          
+      }
+    }   
+
+    const tabList = document.querySelectorAll('.detailmenu .Area li');
+    const contents = document.querySelectorAll('.detailmenu .Areabox .cont')
+    let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
+
+    for (var i = 0; i < tabList.length; i++) {
+      tabList[i].querySelector('.btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        for (var j = 0; j < tabList.length; j++) {
+          // 나머지 버튼 클래스 제거
+          tabList[j].classList.remove('is_on');
+
+          // 나머지 컨텐츠 display:none 처리
+          contents[j].style.display = 'none';
+        }
+
+        // 버튼 관련 이벤트
+        this.parentNode.classList.add('is_on');
+
+        // 버튼 클릭시 컨텐츠 전환
+        activeCont = this.getAttribute('href');
+        document.querySelector(activeCont).style.display = 'block';
+      });
+    }
+
+     // -----------------------------
+    const $hashtechbox = document.querySelector('.hashtechbox');
+    const $input = document.querySelector('.form-control.rounded-pill');
+
+    $hashtechbox.addEventListener("click", handler, false);
+
+    function handler(evt){
+      if(evt.target.tagName.toLowerCase() != 'p') return;
+      const pressBtnOfText = evt.target.textContent.toLowerCase();         
+  
+      if($input.value.indexOf(evt.target.textContent) == -1){      
+      if($input.value == 0){       
+        $input.value = null;
+      }
+      $input.value += (pressBtnOfText + " ");  
+    }
+  }
+
+
+
+  </script>
+</body>
+
+</html>
