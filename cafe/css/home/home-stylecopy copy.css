@@ -1,5 +1,6 @@
 @import url("reset.css");
 
+
 :root {
   --black: rgba(0, 0, 0, 0);
   --blue: #b4bce9;
@@ -57,6 +58,7 @@ main {
 .search-button__detail {
   cursor: pointer;
 }
+
 
 
 /* 상세 CSS 시작*/
