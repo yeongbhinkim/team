@@ -6,9 +6,12 @@ const $detailCHK = document.querySelector('.detailCHK');
 const $tab2box = document.querySelector('.tab2box');
 // const $tab3box = document.querySelector('.tab3box');
 
-
+flag = false;
+flag1 = false;
+flag2 = false;
+flag3 = false;
 //테스트 함수
-const $tab2 = document.getElementById('tab22');
+// const $tab2 = document.getElementById('tab22');
 
 
 function click_f(evt) {
@@ -71,8 +74,8 @@ function click_f(evt) {
      document.getElementById('selectArea1').innerHTML = $toMove.textContent;
      document.getElementById('btn tab2').click();
    });
-   if (evt.target.matches('.Ulsan')) {
-     
+   if (evt.target.matches('.Ulsan') && !flag) {
+    
      const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod21' }, '울산중구'),
      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod22' }, '울산동구'),
@@ -80,11 +83,12 @@ function click_f(evt) {
      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod24' }, '울산북구'),
      );
      $tab2box.appendChild($Ele);  
+     flag = true;
     //  $tab2box.removeChild($tab2);
     //  $tab2box.replaceChild($Ele,$tab2);
     //  console.log($tab2);   
    }
-   if (evt.target.matches('.Busan')) {
+   if (evt.target.matches('.Busan') && !flag1) {
 
      const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
       makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '부산중구'),
@@ -93,9 +97,9 @@ function click_f(evt) {
       makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '부산북구')
      );
      $tab2box.appendChild($Ele);
-    
+     flag1 = true;
    }
-   if (evt.target.matches('.Seoul')) {
+   if (evt.target.matches('.Seoul') && !flag2) {
 
     const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
     makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서울 전체'),
@@ -106,7 +110,7 @@ function click_f(evt) {
    );
 
      $tab2box.appendChild($Ele);
-    
+      flag2 = true;
    }
   }
 

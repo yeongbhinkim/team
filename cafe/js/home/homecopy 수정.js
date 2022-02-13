@@ -4,6 +4,11 @@ const $detail = document.querySelector('.detail');
 const $detailCHK = document.querySelector('.detailCHK');
 const $tab2box = document.querySelector('.tab2box');
 
+
+
+
+
+
 flag = false;
 flag1 = false;
 flag2 = false;
@@ -37,29 +42,58 @@ function click_f(evt) {
    document.getElementById('btn tab1').click();
   }
 
-  //상세메뉴 생성
-  const tabList = document.querySelectorAll('.detailmenu .Area li');
-  const contents = document.querySelectorAll('.detailmenu .Areabox .cont')
-  let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
+  // //상세메뉴 생성
+  // const tabList = document.querySelectorAll('.detailmenu .Area li');
+  // const contents = document.querySelectorAll('.detailmenu .Areabox .cont')
+  // let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
 
-  for (var i = 0; i < tabList.length; i++) {
-    tabList[i].querySelector('.btn').addEventListener('click', function (e) {
-    e.preventDefault();
-    for (var j = 0; j < tabList.length; j++) {
-      // 나머지 버튼 클래스 제거
-      tabList[j].classList.remove('is_on');
+  // for (var i = 0; i < tabList.length; i++) {
+  //   tabList[i].querySelector('.btn').addEventListener('click', function (e) {
+  //   e.preventDefault();
+  //   for (var j = 0; j < tabList.length; j++) {
+  //     // 나머지 버튼 클래스 제거
+  //     tabList[j].classList.remove('is_on');
 
-      // 나머지 컨텐츠 display:none 처리
-      contents[j].style.display = 'none';
+  //     // 나머지 컨텐츠 display:none 처리
+  //     contents[j].style.display = 'none';
+  //   }
+
+  //   // 버튼 관련 이벤트
+  //   this.parentNode.classList.add('is_on');
+
+  //   // 버튼 클릭시 컨텐츠 전환
+  //   activeCont = this.getAttribute('href');
+  //   document.querySelector(activeCont).style.display = 'block';
+  //   });
+  // }
+  newFunction('.Area li', '.cont', '.btn', 'is_on');
+ 
+
+  function newFunction(attr1, attr2, attr3, attr4) {
+
+    const tabList = document.querySelectorAll(attr1);
+    const contents = document.querySelectorAll(attr2);
+    let activeCont3 = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
+
+    for (var i = 0; i < tabList.length; i++) {
+      tabList[i].querySelector(attr3).addEventListener('click', function (e) {
+        e.preventDefault();
+        for (var j = 0; j < tabList.length; j++) {
+          // 나머지 버튼 클래스 제거
+          tabList[j].classList.remove(attr4);
+
+          // 나머지 컨텐츠 display:none 처리
+          contents[j].style.display = 'none';
+        }
+
+        // 버튼 관련 이벤트
+        this.parentNode.classList.add(attr4);
+
+        // 버튼 클릭시 컨텐츠 전환
+        activeCont3 = this.getAttribute('href');
+        document.querySelector(activeCont3).style.display = 'inline-block';
+      });
     }
-
-    // 버튼 관련 이벤트
-    this.parentNode.classList.add('is_on');
-
-    // 버튼 클릭시 컨텐츠 전환
-    activeCont = this.getAttribute('href');
-    document.querySelector(activeCont).style.display = 'block';
-    });
   }
 
   //상세메뉴 데이터 생성
@@ -69,21 +103,30 @@ function click_f(evt) {
      document.getElementById('selectArea1').innerHTML = $toMove.textContent;
      document.getElementById('btn tab2').click();
    });
-   if (evt.target.matches('.Ulsan') && !flag) {
+   
+   if (evt.target.matches('.Ulsan')
+   && !flag
+   ) {
      
-     const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
+     const $Ele = makeElement('div', { 'class': 'cont scroll', 'id': 'tab33' },
      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod21' }, '울산중구'),
      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod22' }, '울산동구'),
      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod23' }, '울산남구'),
      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod24' }, '울산북구'),
      );
      $tab2box.appendChild($Ele);  
-     flag = true;
-    
+     flag = true;       
+   }else if(evt.target.matches('.Ulsan')){
+      
+      
+      
    }
-   if (evt.target.matches('.Busan') && !flag1) {
+   
+   if (evt.target.matches('.Busan')
+    && !flag1
+    ) {
 
-     const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
+     const $Ele = makeElement('div', { 'class': 'cont scroll', 'id': 'tab11' },
       makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '부산중구'),
       makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '부산동구'),
       makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '부산남구'),
@@ -92,9 +135,13 @@ function click_f(evt) {
      $tab2box.appendChild($Ele);
      flag1 = true;
    }
-   if (evt.target.matches('.Seoul') && !flag2) {
 
-    const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
+
+   if (evt.target.matches('.Seoul')
+    && !flag2
+    ) {
+
+    const $Ele = makeElement('div', { 'class': 'cont scroll', 'id': 'tab22' },
     makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서울 전체'),
     makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '강남구'),
     makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '강동구'),
